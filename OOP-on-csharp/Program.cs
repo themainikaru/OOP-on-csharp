@@ -6,32 +6,56 @@ namespace OOP_on_csharp
     {
         static void Main(string[] args)
         {
-            Book book = new Book();
-            book.Title = "Преступление и наказание";
-            book.Pages = 500;
-            book.PrintInfo();
+            Student student = new Student();
+
+            student.SetFullName("Иванов Иван Иванович");
+            student.SetGroupName("СОИП24-ПР1");
+            student.SetAge(17);
+            student.SetParentsFullName("*ФИО родителя*");
+
+            student.PrintInfo();
         }
     }
 
 
-    public class Book
+    public class Group
     {
-        public string Title;
-        private short _pages;
-        public short Pages
+        protected internal string _groupName;
+    }
+
+
+    public class Student : Group
+    {
+        private string FullName;
+        private byte _age;
+        private string _parentsFullName;
+        internal byte inClassСorrectAnswers;
+
+
+        public void SetFullName(string fullName)
         {
-            get { return _pages; }
-            set
-            {
-                if (value < 0)
-                    throw new ArgumentException("количество страниц не может быть отрицательным");
-                _pages = value;
-            }
+            FullName = fullName;
         }
+
+        public void SetGroupName(string groupName)
+        {
+            _groupName = groupName;
+        }
+
+        public void SetAge(byte age)
+        {
+            _age = age;
+        }
+
+        public void SetParentsFullName(string parentsFullName)
+        {
+            _parentsFullName = parentsFullName;
+        }
+
 
         public void PrintInfo()
         {
-            Console.WriteLine($"{Title}, {Pages} страниц");
+            Console.WriteLine($"{FullName}\t{_groupName}\t{_age}\t{_parentsFullName}");
         }
     }
 }
