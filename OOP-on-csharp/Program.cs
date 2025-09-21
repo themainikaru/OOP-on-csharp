@@ -6,56 +6,49 @@ namespace OOP_on_csharp
     {
         static void Main(string[] args)
         {
-            Student student = new Student();
+            Book book1 = new Book();
+            Book book2 = new Book("Война и мир", "Толстой Л. Н.", 1867);
+            Book book3 = new Book("Ониксовый шторм", "Ребекка Яррос");
 
-            student.SetFullName("Иванов Иван Иванович");
-            student.SetGroupName("СОИП24-ПР1");
-            student.SetAge(17);
-            student.SetParentsFullName("*ФИО родителя*");
-
-            student.PrintInfo();
+            book1.DisplayInfo();
+            book2.DisplayInfo();
+            book3.DisplayInfo();
         }
     }
 
 
-    public class Group
+    public class Book
     {
-        protected internal string _groupName;
-    }
+        private string _name;
+        private string _author;
+        private int _year;
 
 
-    public class Student : Group
-    {
-        private string FullName;
-        private byte _age;
-        private string _parentsFullName;
-        internal byte inClassСorrectAnswers;
-
-
-        public void SetFullName(string fullName)
+        public Book()
         {
-            FullName = fullName;
+            _name = "unknown";
+            _author = "unknown";
+            _year = 0;
         }
 
-        public void SetGroupName(string groupName)
+        public Book(string name, string author, int year)
         {
-            _groupName = groupName;
+            _name = name;
+            _author = author;
+            _year = year;
         }
 
-        public void SetAge(byte age)
+        public Book(string name, string author)
         {
-            _age = age;
-        }
-
-        public void SetParentsFullName(string parentsFullName)
-        {
-            _parentsFullName = parentsFullName;
+            _name = name;
+            _author = author;
+            _year = 2024;
         }
 
 
-        public void PrintInfo()
+        public void DisplayInfo()
         {
-            Console.WriteLine($"{FullName}\t{_groupName}\t{_age}\t{_parentsFullName}");
+            Console.WriteLine($"{_name}\t{_author}\t{_year}");
         }
     }
 }
