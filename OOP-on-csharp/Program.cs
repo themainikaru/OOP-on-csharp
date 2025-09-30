@@ -2,53 +2,48 @@
 
 namespace OOP_on_csharp
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            Book book1 = new Book();
-            Book book2 = new Book("Война и мир", "Толстой Л. Н.", 1867);
-            Book book3 = new Book("Ониксовый шторм", "Ребекка Яррос");
+            ComplexNumber complexNumber1 = new ComplexNumber(100, 100);
+            ComplexNumber complexNumber2 = new ComplexNumber(200, 200);
 
-            book1.DisplayInfo();
-            book2.DisplayInfo();
-            book3.DisplayInfo();
+            Sum();
+            Subtraction();
+            Multiplication();
+
+
+            void Sum()
+            {
+                ComplexNumber complexNumber3 = new ComplexNumber(complexNumber1.Real + complexNumber2.Real, complexNumber1.Imag + complexNumber2.Imag);
+                Console.WriteLine($"{complexNumber3.Real}, {complexNumber3.Imag}");
+            }
+
+            void Subtraction()
+            {
+                ComplexNumber complexNumber4 = new ComplexNumber(complexNumber1.Real - complexNumber2.Real, complexNumber1.Imag - complexNumber2.Imag);
+                Console.WriteLine($"{complexNumber4.Real}, {complexNumber4.Imag}");
+            }
+
+            void Multiplication()
+            {
+                ComplexNumber complexNumber5 = new ComplexNumber(complexNumber1.Real * complexNumber2.Real, complexNumber1.Imag * complexNumber2.Imag);
+                Console.WriteLine($"{complexNumber5.Real}, {complexNumber5.Imag}");
+            }
         }
     }
 
-
-    public class Book
+    public struct ComplexNumber
     {
-        private string _name;
-        private string _author;
-        private int _year;
+        public int Real;
+        public int Imag;
 
 
-        public Book()
+        public ComplexNumber(int real, int imag)
         {
-            _name = "unknown";
-            _author = "unknown";
-            _year = 0;
-        }
-
-        public Book(string name, string author, int year)
-        {
-            _name = name;
-            _author = author;
-            _year = year;
-        }
-
-        public Book(string name, string author)
-        {
-            _name = name;
-            _author = author;
-            _year = 2024;
-        }
-
-
-        public void DisplayInfo()
-        {
-            Console.WriteLine($"{_name}\t{_author}\t{_year}");
+            Real = real;
+            Imag = imag;
         }
     }
 }
