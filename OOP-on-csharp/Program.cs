@@ -6,42 +6,35 @@ namespace OOP_on_csharp
     {
         static void Main(string[] args)
         {
-            PositionVector vector0 = new PositionVector(10, 20);
-            PositionVector vector1 = new PositionVector(30, 40);
+            Money amount0 = new Money(111, 222);
+            Money amount1 = new Money(333, 444);
 
-
-            Console.WriteLine($"vector 1 length is {vector0.GetLength()}");
-            Console.WriteLine($"vector 2 length is {vector1.GetLength()}");
-
-            Console.WriteLine($"\nvector 1:\n{vector0.Normalize()}");
-            Console.WriteLine($"\nvector 2:\n{vector1.Normalize()}");
-
-            Console.WriteLine($"\nvector 1 and vector 2 dot product is {PositionVector.GetDotProduct(vector0, vector1)}");
+            Console.WriteLine(Money.Sum(amount0, amount1));
         }
     }
 
-    public struct PositionVector
+    public struct Money
     {
-        public double X, Y;
-        public PositionVector(double x, double y)
+        public int Roubles;
+        public int Kopecks;
+        public Money(int roubles, int kopecks)
         {
-            X = x;
-            Y = y;
+            Roubles = roubles;
+            Kopecks = kopecks;
         }
 
+        public static string Sum(Money amount1, Money amount2)
+        {
+            long roubles = amount1.Roubles + amount2.Roubles;
+            long kopecks = amount1.Kopecks + amount2.Kopecks;
 
-        public double GetLength()
-        {
-            return Math.Sqrt((X * X) + (Y * Y));
-        }
-        public static double GetDotProduct(PositionVector v1, PositionVector v2)
-        {
-            return v1.X * v2.X + v1.Y * v2.Y;
-        }
+            if (kopecks >= 100)
+            {
+                roubles += kopecks / 100;
+                kopecks = kopecks % 100;
+            }
 
-        public string Normalize()
-        {
-            return $"normalized X is {X / GetLength()}\nnormalized Y is {Y / GetLength()}";
+            return $"{roubles} рублей {kopecks} копеек";
         }
     }
 }
