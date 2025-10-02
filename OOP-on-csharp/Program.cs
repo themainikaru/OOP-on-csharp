@@ -6,44 +6,25 @@ namespace OOP_on_csharp
     {
         static void Main(string[] args)
         {
-            ComplexNumber complexNumber1 = new ComplexNumber(100, 100);
-            ComplexNumber complexNumber2 = new ComplexNumber(200, 200);
-
-            Sum();
-            Subtraction();
-            Multiplication();
-
-
-            void Sum()
-            {
-                ComplexNumber complexNumber3 = new ComplexNumber(complexNumber1.Real + complexNumber2.Real, complexNumber1.Imag + complexNumber2.Imag);
-                Console.WriteLine($"{complexNumber3.Real}, {complexNumber3.Imag}");
-            }
-
-            void Subtraction()
-            {
-                ComplexNumber complexNumber4 = new ComplexNumber(complexNumber1.Real - complexNumber2.Real, complexNumber1.Imag - complexNumber2.Imag);
-                Console.WriteLine($"{complexNumber4.Real}, {complexNumber4.Imag}");
-            }
-
-            void Multiplication()
-            {
-                ComplexNumber complexNumber5 = new ComplexNumber(complexNumber1.Real * complexNumber2.Real, complexNumber1.Imag * complexNumber2.Imag);
-                Console.WriteLine($"{complexNumber5.Real}, {complexNumber5.Imag}");
-            }
+            Color color = new Color(100, 255, 100);
+            Console.WriteLine($"\u001b[48;2;{color.R};{color.G};{color.B}m  \u001b[0m {color.HexCode()}");
         }
     }
 
-    public struct ComplexNumber
+    public struct Color
     {
-        public int Real;
-        public int Imag;
+        public byte R;
+        public byte G;
+        public byte B;
 
-
-        public ComplexNumber(int real, int imag)
+        public Color(byte r, byte g, byte b)
         {
-            Real = real;
-            Imag = imag;
+            R = r; G = g; B = b;
+        }
+
+        public string HexCode()
+        {
+            return $"#{R.ToString("X2") + G.ToString("X2") + B.ToString("X2")}";
         }
     }
 }
