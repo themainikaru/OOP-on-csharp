@@ -6,25 +6,34 @@ namespace OOP_on_csharp
     {
         static void Main(string[] args)
         {
-            Color color = new Color(100, 255, 100);
-            Console.WriteLine($"\u001b[48;2;{color.R};{color.G};{color.B}m  \u001b[0m {color.HexCode()}");
+            Date birthday = new Date(8, 1, 1984);
+
+            Console.WriteLine(birthday.IsLeapYear());
         }
     }
 
-    public struct Color
+    public struct Date
     {
-        public byte R;
-        public byte G;
-        public byte B;
+        private byte _day;
+        private byte _month;
+        private short _year;
 
-        public Color(byte r, byte g, byte b)
+        public Date(byte day, byte month, short year)
         {
-            R = r; G = g; B = b;
+            _day = day;
+            _month = month;
+            _year = year;
         }
 
-        public string HexCode()
+        public bool IsLeapYear()
         {
-            return $"#{R.ToString("X2") + G.ToString("X2") + B.ToString("X2")}";
+            switch (_year % 4)
+            {
+                case 0:
+                    return true;
+                default:
+                    return false;
+            }
         }
     }
 }
