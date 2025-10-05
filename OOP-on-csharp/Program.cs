@@ -6,12 +6,10 @@ namespace OOP_on_csharp
     {
         static void Main(string[] args)
         {
-            Triangle.Point pointA = new Triangle.Point(0, 0);
-            Triangle.Point pointB = new Triangle.Point(3, 0);
-            Triangle.Point pointC = new Triangle.Point(0, 4);
+            Stereometry.Point point1 = new Stereometry.Point(0, 0, 0);
+            Stereometry.Point point2 = new Stereometry.Point(10, 10, 10);
 
-            Triangle triangle = new Triangle(pointA, pointB, pointC);
-            triangle.PrintInfo();
+            point1.PrintDistanceTo(point2);
         }
     }
 }
