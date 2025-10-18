@@ -6,10 +6,11 @@ namespace OOP_on_csharp
     {
         static void Main(string[] args)
         {
-            Stereometry.Point point1 = new Stereometry.Point(0, 0, 0);
-            Stereometry.Point point2 = new Stereometry.Point(10, 10, 10);
+            Box<int> box1 = new Box<int>(888);
+            Box<string> box2 = new Box<string>("string");
 
-            point1.PrintDistanceTo(point2);
+            Console.WriteLine($"число в коробке: {box1.Get()}");
+            Console.WriteLine($"строка в коробке: {box2.Get()}");
         }
     }
 }
