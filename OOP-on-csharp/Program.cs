@@ -6,32 +6,14 @@ namespace OOP_on_csharp
     {
         static void Main(string[] args)
         {
-            Book book = new Book();
-            book.Title = "Преступление и наказание";
-            book.Pages = 500;
+            Book book = new Book("Преступление и наказание", 500);
             book.PrintInfo();
-        }
-    }
 
+            Rectangle rectangle = new Rectangle(10, 10);
+            rectangle.PrintArea();
 
-    public class Book
-    {
-        public string Title;
-        private short _pages;
-        public short Pages
-        {
-            get { return _pages; }
-            set
-            {
-                if (value < 0)
-                    throw new ArgumentException("количество страниц не может быть отрицательным");
-                _pages = value;
-            }
-        }
-
-        public void PrintInfo()
-        {
-            Console.WriteLine($"{Title}, {Pages} страниц");
+            Student student = new Student("Игнат", 5);
+            student.PrintInfo();
         }
     }
 }
