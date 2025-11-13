@@ -27,4 +27,4 @@ namespace OOP_on_csharp
             Console.WriteLine($"\nfirst item: {pair.GetFirstItem()}\tsecond item: {pair.GetSecondItem()}");
         }
     }
-}
+} 
