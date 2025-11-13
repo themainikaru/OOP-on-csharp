@@ -6,11 +6,21 @@ namespace OOP_on_csharp
     {
         static void Main(string[] args)
         {
-            Box<int> box1 = new Box<int>(888);
-            Box<string> box2 = new Box<string>("string");
+            double firstNumber, secondNumber;
+            char operation;
 
-            Console.WriteLine($"число в коробке: {box1.Get()}");
-            Console.WriteLine($"строка в коробке: {box2.Get()}");
+            Console.Write("Введите первое число: ");
+            firstNumber = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Введите второе число: ");
+            secondNumber = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Выберите операцию (+, -, *, /): ");
+            operation = Convert.ToChar(Console.ReadLine());
+
+            Console.Write($"\nРезультат: ");
+            Math.Calculate(firstNumber, secondNumber, operation);
+
+            Console.WriteLine("\nАнализ чисел: ");
+            Math.Analyze(firstNumber, secondNumber);
         }
     }
 }
