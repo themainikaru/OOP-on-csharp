@@ -30,14 +30,12 @@ namespace OOP_on_csharp
             _author = "unknown";
             _year = 0;
         }
-
         public Book(string name, string author, int year)
         {
             _name = name;
             _author = author;
             _year = year;
         }
-
         public Book(string name, string author)
         {
             _name = name;
